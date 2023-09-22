@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class inputManager : MonoBehaviour
 {
+    [SerializeField] PlayMove playMove;
+
     private bool isGrounded = false;
     // Start is called before the first frame update
     void Start()
@@ -16,56 +18,56 @@ public class inputManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                //PlayMove.Jump();
+                //playMove.Jump();
             }
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            //PlayMove.Left();
+            //playMove.Left();
         }
-        if(Input.GetKeyDown(KeyCode.D)) 
+        if (Input.GetKeyDown(KeyCode.D)) 
         {
-            //PlayMove.Right();
+            //playMove.Right();
         }
-        if(Input.GetKeyDown(KeyCode.W))
-        { 
-            //PlayMove.Foward();
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            //playMove.Foward();
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            //PlayMove.Backward();
+            //playMove.Backward();
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            //PlayMove.Sprint();
+            //playMove.Sprint();
         }
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            //PlayMove.Crouch();
+            //playMove.Crouch();
         }
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //PlayMove.Attack();
+            //playMove.Attack();
         }
-        if(Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            //PlayMove.Defeand();
+            //playMove.Defeand();
         }
         if (Input.GetKeyDown(KeyCode.F)) 
-        { 
-            //PlayMove.Interact();
+        {
+            //playMove.Interact();
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 1)
         {
-            //PlayMove.SwitchWeaponUP();
-            
+            //playMove.SwitchWeaponUP();
+
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 1)
         {
-            
-            //PlayMove.SwitchWeaponDown();
+
+            //playMove.SwitchWeaponDown();
         }
-        if(Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape)) 
         { 
             //GameMenu.PauseMenu
         }

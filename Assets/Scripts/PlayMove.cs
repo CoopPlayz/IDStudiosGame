@@ -15,4 +15,9 @@ public class PlayMove : MonoBehaviour
     {
         
     }
+
+    public void Jump()
+    {
+        
+    }
 }
