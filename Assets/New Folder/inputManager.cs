@@ -55,7 +55,7 @@ public class inputManager : MonoBehaviour
         { 
             //PlayMove.Interact();
         }
-        if (Input.GetAxis("Mouse ScrollWheel"))
+        if (Input.GetAxis("Mouse ScrollWheel") > 1)
         {
             //PlayMove.SwitchWeaponUP();
             //PlayMove.SwitchWeaponDown();
