@@ -58,8 +58,16 @@ public class inputManager : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 1)
         {
             //PlayMove.SwitchWeaponUP();
+            
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 1)
+        {
+            
             //PlayMove.SwitchWeaponDown();
         }
-
+        if(Input.GetKeyDown(KeyCode.Escape)) 
+        { 
+            //GameMenu.PauseMenu
+        }
     }
 }
