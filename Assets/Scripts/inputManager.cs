@@ -31,7 +31,7 @@ public class inputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            playMove.Foward();
+            playMove.Forward();
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
