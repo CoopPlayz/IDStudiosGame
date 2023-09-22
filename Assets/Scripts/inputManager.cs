@@ -6,7 +6,7 @@ public class inputManager : MonoBehaviour
 {
     [SerializeField] PlayMove playMove;
 
-    private bool isGrounded = false;
+    private bool isGrounded = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +14,11 @@ public class inputManager : MonoBehaviour
     }
     void Update()
     {
-        if (!isGrounded) // Jump input
+        if (isGrounded) // Jump input
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                //playMove.Jump();
+                playMove.Jump();
             }
         }
         if (Input.GetKeyDown(KeyCode.A))
@@ -29,13 +29,13 @@ public class inputManager : MonoBehaviour
         {
             //playMove.Right();
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             playMove.Forward();
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
-            //playMove.Backward();
+            playMove.Backward();
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {

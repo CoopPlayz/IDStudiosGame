@@ -23,10 +23,14 @@ public class PlayMove : MonoBehaviour
     }
     public void Forward()
     {
-        rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, straightLineSpeed * Time.deltaTime);
+        rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, straightLineSpeed);
+    }
+    public void Backward()
+    {
+        rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, -straightLineSpeed);
     }
     public void Jump()
     {
-        
+        rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
     }
 }
