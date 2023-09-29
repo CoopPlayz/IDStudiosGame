@@ -21,22 +21,35 @@ public class inputManager : MonoBehaviour
                 playMove.Jump();
             }
         }
-        if (Input.GetKeyDown(KeyCode.A))
+
+        Vector3 movementDirection = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.A))
         {
             //playMove.Left();
+            movementDirection.x = -1;
         }
-        if (Input.GetKeyDown(KeyCode.D)) 
+        if (Input.GetKey(KeyCode.D)) 
         {
             //playMove.Right();
+            movementDirection.x = 1;
+            
         }
         if (Input.GetKey(KeyCode.W))
         {
-            playMove.Forward();
+            //playMove.Forward();
+            movementDirection.z = -1;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            playMove.Backward();
+            //playMove.Backward();
+            movementDirection.z = 1;
         }
+
+        playMove.Movement(movementDirection);
+
+
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             //playMove.Sprint();
@@ -51,9 +64,9 @@ public class inputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            //playMove.Defeand();
+            //playMove.Defend();
         }
-        if (Input.GetKeyDown(KeyCode.F)) 
+        if (Input.GetKeyDown(KeyCode.E)) 
         {
             //playMove.Interact();
         }

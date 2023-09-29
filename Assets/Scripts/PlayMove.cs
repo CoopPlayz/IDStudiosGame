@@ -19,7 +19,31 @@ public class PlayMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        int zeroSpeed = 0;
+    }
+    public void Left()
+    {
+
+        rigidBody.velocity = new Vector3(-horizontalSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
+    }
+
+    public void Movement(Vector3 direction)
+    {
+        Vector3 movement;
+
+        movement.x = direction.x * horizontalSpeed;
+        movement.y = rigidBody.velocity.y;
+        movement.z = direction.z * horizontalSpeed;
+
+        rigidBody.velocity = movement;
+
+
+
+    }
+
+    public void Right()
+    {
+        rigidBody.velocity = new Vector3(horizontalSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
     }
     public void Forward()
     {
