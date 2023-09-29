@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayMove : MonoBehaviour
 {
-    [SerializeField] private float straightLineSpeed;
-    [SerializeField] private float horizontalSpeed;
-    [SerializeField] private float jumpForce;
+    private float straightLineSpeed = 15;
+    private float horizontalSpeed = 15;
+    private float jumpForce = 15;
 
     private Rigidbody rigidBody;
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class PlayMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int zeroSpeed = 0;
+        
     }
     public void Left()
     {

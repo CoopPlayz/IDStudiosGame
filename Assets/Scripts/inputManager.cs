@@ -38,12 +38,12 @@ public class inputManager : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             //playMove.Forward();
-            movementDirection.z = -1;
+            movementDirection.z = 1;
         }
         if (Input.GetKey(KeyCode.S))
         {
             //playMove.Backward();
-            movementDirection.z = 1;
+            movementDirection.z = -1;
         }
 
         playMove.Movement(movementDirection);
