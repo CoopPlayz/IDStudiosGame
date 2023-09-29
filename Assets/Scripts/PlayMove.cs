@@ -6,7 +6,8 @@ public class PlayMove : MonoBehaviour
 {
     private float straightLineSpeed = 15;
     private float horizontalSpeed = 15;
-    private float jumpForce = 15;
+    [SerializeField] private float jumpForce = 5;
+    
 
     private Rigidbody rigidBody;
     // Start is called before the first frame update
