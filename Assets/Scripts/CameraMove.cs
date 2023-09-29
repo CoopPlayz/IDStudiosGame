@@ -5,15 +5,18 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     [SerializeField] private Transform targetObject;
-    [SerializeField] private float sensitivity;
+    [SerializeField] private float xSensitivity;
+    [SerializeField] private float ySensitivity;
     [SerializeField] private Rigidbody PlayerBody;
     private Vector3 initialOffset;
     private float xRotation;
+    private float yRotation;
     private Transform PlayerCam;// = GetComponent<MainCamera>().transform;
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         initialOffset = this.transform.position - targetObject.position;
     }
 
@@ -26,15 +29,19 @@ public class CameraMove : MonoBehaviour
 
     public void Look()
     {
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
-
-        xRotation = xRotation - mouseY;
+        float mouseX = -Input.GetAxis("Mouse X") * Time.deltaTime * xSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * ySensitivity;
+        
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        
+        xRotation = xRotation - mouseY;
+        yRotation = yRotation - mouseX;
+
+
 
         PlayerCam = this.transform;
-        PlayerCam.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        PlayerBody.MoveRotation(PlayerCam.localRotation);
+        PlayerCam.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+        PlayerBody.transform.Rotate(Vector3.up * mouseX);
 
 
     }

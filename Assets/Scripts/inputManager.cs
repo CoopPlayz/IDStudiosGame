@@ -56,11 +56,11 @@ public class inputManager : MonoBehaviour
         
         playMove.Movement(movementDirection);
 
-        if(Input.GetAxis("Mouse X") > 0)
+        if(Input.GetAxis("Mouse X") > 0 || Input.GetAxis("Mouse X") < 0)
         {
             cameraMove.Look();
         }
-        if (Input.GetAxis("Mouse Y") > 0)
+        if (Input.GetAxis("Mouse Y") > 0 || Input.GetAxis("Mouse Y") < 0)
         {
             cameraMove.Look();
         }
