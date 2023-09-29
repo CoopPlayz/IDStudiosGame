@@ -6,6 +6,7 @@ public class inputManager : MonoBehaviour
 {
     [SerializeField] PlayMove playMove;
     [SerializeField] CameraMove cameraMove;
+    [SerializeField] Rigidbody rigidBody;
     private bool isGrounded = true;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class inputManager : MonoBehaviour
             }
         }
 
-        Vector3 movementDirection = Vector3.zero;
+        Vector3 movementDirection = Vector3.zero; 
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -43,6 +44,7 @@ public class inputManager : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             //playMove.Backward();
+            
             movementDirection.z = -1;
         }
         if (Input.GetKey(KeyCode.LeftShift))

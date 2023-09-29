@@ -30,14 +30,15 @@ public class PlayMove : MonoBehaviour
 
     public void Movement(Vector3 direction)
     {
-        Vector3 movement;
+        Vector3 movement = transform.forward;
 
-        movement.x = direction.x * horizontalSpeed;
+        movement.x *= direction.x * horizontalSpeed;
         movement.y = rigidBody.velocity.y;
-        movement.z = direction.z * horizontalSpeed;
+        movement.z *= direction.z * horizontalSpeed;
 
         rigidBody.velocity = movement;
 
+        //rigidBody.velocity = transform.forward * horizontalSpeed;
 
 
     }

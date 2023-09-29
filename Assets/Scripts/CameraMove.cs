@@ -41,7 +41,7 @@ public class CameraMove : MonoBehaviour
 
         PlayerCam = this.transform;
         PlayerCam.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
-        PlayerBody.transform.Rotate(Vector3.up * mouseX);
+        PlayerBody.transform.Rotate(-Vector3.up * mouseX);
 
 
     }
