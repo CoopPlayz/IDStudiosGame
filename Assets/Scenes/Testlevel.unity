@@ -859,6 +859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c581105f7b968c428e3b19705c3c0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 15
 --- !u!1 &2049858238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1878554280}
-  sensitivity: 100
+  sensitivity: 101
   PlayerBody: {fileID: 1878554281}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
