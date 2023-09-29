@@ -5,7 +5,7 @@ using UnityEngine;
 public class inputManager : MonoBehaviour
 {
     [SerializeField] PlayMove playMove;
-
+    [SerializeField] CameraMove cameraMove;
     private bool isGrounded = true;
     // Start is called before the first frame update
     void Start()
@@ -45,11 +45,6 @@ public class inputManager : MonoBehaviour
             //playMove.Backward();
             movementDirection.z = -1;
         }
-
-        playMove.Movement(movementDirection);
-
-
-
         if (Input.GetKey(KeyCode.LeftShift))
         {
             //playMove.Sprint();
@@ -58,6 +53,20 @@ public class inputManager : MonoBehaviour
         {
             //playMove.Crouch();
         }
+        
+        playMove.Movement(movementDirection);
+
+        if(Input.GetAxis("Mouse X") > 0)
+        {
+            cameraMove.Look();
+        }
+        if (Input.GetAxis("Mouse Y") > 0)
+        {
+            cameraMove.Look();
+        }
+
+
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             //playMove.Attack();

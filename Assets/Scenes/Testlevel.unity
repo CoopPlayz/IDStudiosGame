@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playMove: {fileID: 1878554282}
+  cameraMove: {fileID: 2097195409}
 --- !u!4 &539779258
 Transform:
   m_ObjectHideFlags: 0

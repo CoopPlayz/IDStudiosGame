@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraMove : MonoBehaviour
 {
     [SerializeField] private Transform targetObject;
     private Vector3 initialOffset;
@@ -17,6 +17,11 @@ public class Camera : MonoBehaviour
     void Update()
     {
         this.transform.position = targetObject.position + initialOffset;
+
+    }
+
+    public void Look()
+    {
 
     }
 }
