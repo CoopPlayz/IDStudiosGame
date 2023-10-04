@@ -23,7 +23,9 @@ public class inputManager : MonoBehaviour
             }
         }
 
-        Vector3 movementDirection = Vector3.zero; 
+        Vector3 movementDirection = Vector3.zero;
+
+
 
         if (Input.GetKey(KeyCode.A))
         {

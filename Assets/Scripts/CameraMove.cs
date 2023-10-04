@@ -8,10 +8,12 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private float xSensitivity;
     [SerializeField] private float ySensitivity;
     [SerializeField] private Rigidbody PlayerBody;
+
     private Vector3 initialOffset;
     private float xRotation;
     private float yRotation;
     private Transform PlayerCam;// = GetComponent<MainCamera>().transform;
+    public Transform orientation;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +39,12 @@ public class CameraMove : MonoBehaviour
         xRotation = xRotation - mouseY;
         yRotation = yRotation - mouseX;
 
-
+        
 
         PlayerCam = this.transform;
         PlayerCam.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
         PlayerBody.transform.Rotate(-Vector3.up * mouseX);
+        orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
 
 
     }
