@@ -7,7 +7,7 @@ public class PlayMove : MonoBehaviour
     private float straightLineSpeed = 15;
     private float horizontalSpeed = 100;
     [SerializeField] private float jumpForce = 5;
-    
+    [SerializeField] private Transform orientationCam;
 
     private Rigidbody rigidBody;
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class PlayMove : MonoBehaviour
 
     public void Movement(Vector3 direction)
     {
-        Vector3 movement = transform.forward;
+        Vector3 movement = orientationCam.transform.forward;
 
         movement.x *= direction.x * horizontalSpeed;
         movement.y = rigidBody.velocity.y;

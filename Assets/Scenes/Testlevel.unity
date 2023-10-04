@@ -968,6 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 15
+  orientationCam: {fileID: 1878554280}
 --- !u!114 &1878554283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1196,6 +1197,7 @@ MonoBehaviour:
   xSensitivity: 350
   ySensitivity: 350
   PlayerBody: {fileID: 1878554281}
+  orientation: {fileID: 1878554280}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -11,8 +11,8 @@ public class CameraMove : MonoBehaviour
 
     private Vector3 initialOffset;
     private float xRotation;
-    private float yRotation;
-    private Transform PlayerCam;// = GetComponent<MainCamera>().transform;
+    private float desiredX;
+    private Transform playerCam;// = GetComponent<MainCamera>().transform;
     public Transform orientation;
 
     // Start is called before the first frame update
@@ -36,13 +36,14 @@ public class CameraMove : MonoBehaviour
         
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         
+        playerCam = this.transform;
+        //Find current look rotation
+        Vector3 rot = playerCam.transform.localRotation.eulerAngles;
+        desiredX = rot.y + mouseX;
+
         xRotation = xRotation - mouseY;
-        yRotation = yRotation - mouseX;
 
-        
-
-        PlayerCam = this.transform;
-        PlayerCam.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+        playerCam.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
         PlayerBody.transform.Rotate(-Vector3.up * mouseX);
         orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
 
