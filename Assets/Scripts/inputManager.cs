@@ -23,32 +23,42 @@ public class inputManager : MonoBehaviour
             }
         }
 
-        Vector3 movementDirection = Vector3.zero;
+        playMove.mouseInput();
 
 
+        
+        //Vector3 movementDirection = Vector3.zero;
 
         if (Input.GetKey(KeyCode.A))
         {
             //playMove.Left();
-            movementDirection.x = -1;
+            playMove.Movement();
+            //movementDirection.x = -1;
         }
         if (Input.GetKey(KeyCode.D)) 
         {
             //playMove.Right();
-            movementDirection.x = 1;
-            
+            playMove.Movement();
+            //movementDirection.x = 1;
+
         }
         if (Input.GetKey(KeyCode.W))
         {
             //playMove.Forward();
-            movementDirection.z = 1;
+            playMove.Movement();
+            //movementDirection.z = 1;
         }
         if (Input.GetKey(KeyCode.S))
         {
             //playMove.Backward();
-            
-            movementDirection.z = -1;
+            playMove.Movement();
+            //movementDirection.z = -1;
         }
+        if(! Input.anyKeyDown) //& grounded
+        {
+            rigidBody.velocity = Vector3.zero;
+        }
+        /*
         if (Input.GetKey(KeyCode.LeftShift))
         {
             //playMove.Sprint();
@@ -59,8 +69,8 @@ public class inputManager : MonoBehaviour
         }
         
         playMove.Movement(movementDirection);
-
-        if(Input.GetAxis("Mouse X") > 0 || Input.GetAxis("Mouse X") < 0)
+        */
+        if (Input.GetAxis("Mouse X") > 0 || Input.GetAxis("Mouse X") < 0)
         {
             cameraMove.Look();
         }

@@ -31,12 +31,13 @@ public class CameraMove : MonoBehaviour
 
     public void Look()
     {
-        float mouseX = -Input.GetAxis("Mouse X") * Time.deltaTime * xSensitivity;
+        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * xSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * ySensitivity;
         
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         
         playerCam = this.transform;
+        
         //Find current look rotation
         Vector3 rot = playerCam.transform.localRotation.eulerAngles;
         desiredX = rot.y + mouseX;
