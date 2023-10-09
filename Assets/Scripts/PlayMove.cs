@@ -7,12 +7,14 @@ public class PlayMove : MonoBehaviour
     private float moveSpeed = 15;
     private float maxSpeed = 15;
 
-    [SerializeField] private float jumpForce = 5;
+    [SerializeField] private float jumpForce = 500;
     [SerializeField] private Transform orientationCam;
 
     private Rigidbody rigidBody;
     private Rigidbody rigidBodyExtra;
     private float x, y;
+
+    [SerializeField] public static bool isGrounded = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,7 @@ public class PlayMove : MonoBehaviour
 
         rigidBody.AddForce(orientationCam.transform.forward * y * moveSpeed * 0.5f);
         rigidBody.AddForce(orientationCam.transform.right * x * moveSpeed *0.25f);
+
     }
 
     
@@ -88,5 +91,32 @@ public class PlayMove : MonoBehaviour
     {
         rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collectible"))
+        {
+            Debug.Log("Youve found a collectible");
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("Youre grounded");
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("Youre not grounded");
+            isGrounded = false;
+        }
+    }
 }

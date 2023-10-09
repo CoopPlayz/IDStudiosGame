@@ -7,7 +7,7 @@ public class inputManager : MonoBehaviour
     [SerializeField] PlayMove playMove;
     [SerializeField] CameraMove cameraMove;
     [SerializeField] Rigidbody rigidBody;
-    private bool isGrounded = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,7 @@ public class inputManager : MonoBehaviour
     }
     void Update()
     {
-        if (isGrounded) // Jump input
+        if (PlayMove.isGrounded == true) // Jump input
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -24,9 +24,9 @@ public class inputManager : MonoBehaviour
         }
 
         playMove.mouseInput();
-
-
         
+
+
         //Vector3 movementDirection = Vector3.zero;
 
         if (Input.GetKey(KeyCode.A))
@@ -54,8 +54,9 @@ public class inputManager : MonoBehaviour
             playMove.Movement();
             //movementDirection.z = -1;
         }
-        if(! Input.anyKeyDown) //& grounded
-        {
+        
+        if(! Input.anyKeyDown && PlayMove.isGrounded == true)
+        { 
             rigidBody.velocity = Vector3.zero;
         }
         /*

@@ -34,7 +34,7 @@ public class CameraMove : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * xSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * ySensitivity;
         
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, -89f, 89f);
         
         playerCam = this.transform;
         
