@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayMove : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class PlayMove : MonoBehaviour
     private Rigidbody rigidBodyExtra;
     private float x, y;
 
-    [SerializeField] public static bool isGrounded = false;
+    public static bool isGrounded = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,9 +44,10 @@ public class PlayMove : MonoBehaviour
         if (y < 0 && yMag < -maxSpeed) y = 0;
         */
 
+        float yVelocity = rigidBody.velocity.y;
         rigidBody.AddForce(orientationCam.transform.forward * y * moveSpeed * 0.5f);
         rigidBody.AddForce(orientationCam.transform.right * x * moveSpeed *0.25f);
-
+        rigidBody.velocity = new Vector3(Mathf.Clamp(rigidBody.velocity.x, -maxSpeed, maxSpeed), yVelocity, Mathf.Clamp(rigidBody.velocity.z, -maxSpeed, maxSpeed));
     }
 
     
@@ -89,17 +91,10 @@ public class PlayMove : MonoBehaviour
     */
     public void Jump()
     {
-        rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
+        //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
+        rigidBody.AddForce(orientationCam.transform.up * jumpForce);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Collectible"))
-        {
-            Debug.Log("Youve found a collectible");
-            Destroy(other.gameObject);
-        }
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

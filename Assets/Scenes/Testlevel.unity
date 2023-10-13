@@ -1056,6 +1056,7 @@ GameObject:
   - component: {fileID: 1652371243}
   - component: {fileID: 1652371245}
   - component: {fileID: 1652371244}
+  - component: {fileID: 1652371246}
   m_Layer: 5
   m_Name: Collectible Value
   m_TagString: Untagged
@@ -1179,6 +1180,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652371242}
   m_CullTransparentMesh: 1
+--- !u!114 &1652371246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652371242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5621590b6000dea4eb38e68488f4b410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectible: {fileID: 1878554284}
 --- !u!1 &1878554276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,6 +1208,7 @@ GameObject:
   - component: {fileID: 1878554281}
   - component: {fileID: 1878554282}
   - component: {fileID: 1878554283}
+  - component: {fileID: 1878554284}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1329,7 +1344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c581105f7b968c428e3b19705c3c0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
+  jumpForce: 350
   orientationCam: {fileID: 1878554280}
 --- !u!114 &1878554283
 MonoBehaviour:
@@ -1344,6 +1359,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+--- !u!114 &1878554284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878554276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8570cf6175b3eea4fb75f97c0eef02bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onAddCollectible:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2049858238
 GameObject:
   m_ObjectHideFlags: 0

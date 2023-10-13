@@ -54,10 +54,14 @@ public class inputManager : MonoBehaviour
             playMove.Movement();
             //movementDirection.z = -1;
         }
+
+        bool isKeyPressed;
         
-        if(! Input.anyKeyDown && PlayMove.isGrounded == true)
-        { 
-            rigidBody.velocity = Vector3.zero;
+        if(!Input.anyKey && PlayMove.isGrounded == true)
+        {
+            Debug.Log("Zeroing Speed");
+            rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
+            //rigidBody.velocity = Vector3.zero;
         }
         /*
         if (Input.GetKey(KeyCode.LeftShift))
