@@ -59,14 +59,15 @@ public class inputManager : MonoBehaviour
                 //rigidBody.velocity = Vector3.zero;
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                playerDash.Dash();
-            }
+            
         }
 
         playMove.mouseInput();
-        
+
+        if (Input.GetKeyDown(KeyCode.Z))
+            {
+                playerDash.Dash();
+            }
 
 
         

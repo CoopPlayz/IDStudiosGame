@@ -94,8 +94,16 @@ public class PlayMove : MonoBehaviour
         //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         rigidBody.AddForce(orientationCam.transform.up * jumpForce);
     }
-    
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.contacts[0].normal.y > 0.5)
+        {
+            Debug.Log("Youre grounded");
+            isGrounded = true;
+        }
+        
+    }
+    /*
     private void OnCollisionEnter(Collision collision)
     {
 
@@ -105,7 +113,7 @@ public class PlayMove : MonoBehaviour
             isGrounded = true;
         }
     }
-
+    */
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
