@@ -14,6 +14,7 @@ public class Collectible : MonoBehaviour
         currentCollectibles += amount;
         onAddCollectible?.Invoke(currentCollectibles);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Collectible"))

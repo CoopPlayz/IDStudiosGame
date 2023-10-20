@@ -94,7 +94,7 @@ public class PlayMove : MonoBehaviour
         //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         rigidBody.AddForce(orientationCam.transform.up * jumpForce);
     }
-
+    
 
     private void OnCollisionEnter(Collision collision)
     {

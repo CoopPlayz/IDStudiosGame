@@ -7,6 +7,9 @@ public class inputManager : MonoBehaviour
     [SerializeField] PlayMove playMove;
     [SerializeField] CameraMove cameraMove;
     [SerializeField] Rigidbody rigidBody;
+    [SerializeField] PlayerDash playerDash;
+
+   
     
     // Start is called before the first frame update
     void Start()
@@ -21,53 +24,56 @@ public class inputManager : MonoBehaviour
             {
                 playMove.Jump();
             }
+            //Vector3 movementDirection = Vector3.zero;
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                //playMove.Left();
+                playMove.Movement();
+                //movementDirection.x = -1;
+            }
+            if (Input.GetKey(KeyCode.D)) 
+            {
+                //playMove.Right();
+                playMove.Movement();
+                //movementDirection.x = 1;
+
+            }
+            if (Input.GetKey(KeyCode.W))
+            {
+                playMove.Movement();
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                //playMove.Backward();
+                playMove.Movement();
+                //movementDirection.z = -1;
+            }
+
+            //bool isKeyPressed;
+        
+            if(!Input.anyKey && PlayMove.isGrounded == true && !playerDash.IsDashing )
+            {
+                Debug.Log("Zeroing Speed");
+                rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
+                //rigidBody.velocity = Vector3.zero;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                playerDash.Dash();
+            }
         }
 
         playMove.mouseInput();
         
 
 
-        //Vector3 movementDirection = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            //playMove.Left();
-            playMove.Movement();
-            //movementDirection.x = -1;
-        }
-        if (Input.GetKey(KeyCode.D)) 
-        {
-            //playMove.Right();
-            playMove.Movement();
-            //movementDirection.x = 1;
-
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            //playMove.Forward();
-            playMove.Movement();
-            //movementDirection.z = 1;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            //playMove.Backward();
-            playMove.Movement();
-            //movementDirection.z = -1;
-        }
-
-        bool isKeyPressed;
         
-        if(!Input.anyKey && PlayMove.isGrounded == true)
-        {
-            Debug.Log("Zeroing Speed");
-            rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
-            //rigidBody.velocity = Vector3.zero;
-        }
+
+        
+        
         /*
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            //playMove.Sprint();
-        }
         if (Input.GetKey(KeyCode.LeftControl))
         {
             //playMove.Crouch();

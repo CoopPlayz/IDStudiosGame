@@ -7,14 +7,36 @@ public class PlayerDash : MonoBehaviour
 {
     
     public float speed = 500f;
+    [SerializeField] float dashCooldown = 3;
+    bool isDashing = false;
+
+    public bool IsDashing => isDashing;
+
+    private float timer = 0;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (!isDashing) return;
+
+        timer += Time.deltaTime;
+
+        if(timer >= dashCooldown)
         {
-            //transform.position += new Vector3(speed * Time.deltaTime, 0.1f, 0.0f);
-            GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+            isDashing = false;
         }
-            
+          
     }
+
+
+    public void Dash()
+    {
+        if (isDashing) return;  //Does check only if we are not dashing
+
+        //transform.position += new Vector3(speed * Time.deltaTime, 0.1f, 0.0f);
+        GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+        timer = 0;
+        isDashing = true;
+        
+    }
+        
 }
 
