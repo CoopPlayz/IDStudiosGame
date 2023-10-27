@@ -52,7 +52,7 @@ public class inputManager : MonoBehaviour
 
             //bool isKeyPressed;
         
-            if(!Input.anyKey && PlayMove.isGrounded == true && !playerDash.IsDashing )
+            if(!Input.anyKey && !playerDash.IsDashing )
             {
                 Debug.Log("Zeroing Speed");
                 rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
@@ -62,25 +62,20 @@ public class inputManager : MonoBehaviour
             
         }
 
-        playMove.mouseInput();
+        playMove.directionalInput();
 
         if (Input.GetKeyDown(KeyCode.Z))
-            {
-                playerDash.Dash();
-            }
+        {
+            playerDash.Dash();
+        }
+     
 
-
-        
-
-        
-        
         /*
         if (Input.GetKey(KeyCode.LeftControl))
         {
             //playMove.Crouch();
         }
         
-        playMove.Movement(movementDirection);
         */
         if (Input.GetAxis("Mouse X") > 0 || Input.GetAxis("Mouse X") < 0)
         {

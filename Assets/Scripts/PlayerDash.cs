@@ -25,8 +25,6 @@ public class PlayerDash : MonoBehaviour
         }
           
     }
-
-
     public void Dash()
     {
         if (isDashing) return;  //Does check only if we are not dashing
