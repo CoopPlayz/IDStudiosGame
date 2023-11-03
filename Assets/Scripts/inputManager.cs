@@ -117,10 +117,12 @@ public class inputManager : MonoBehaviour
             if (pauseMenu.isPaused)
             {
                 pauseMenu.ResumeGame();
+                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 pauseMenu.PauseGame();
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
