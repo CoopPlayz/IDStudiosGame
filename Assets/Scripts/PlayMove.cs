@@ -54,15 +54,15 @@ public class PlayMove : MonoBehaviour
         //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         rigidBody.AddForce(orientationCam.transform.up * jumpForce);
     }
-    private void OnCollisionEnter(Collision collision)
+     
+
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.contacts[0].normal.y > 0.5)
         {
-            
             Debug.Log("Youre grounded");
             isGrounded = true;
         }
-        
     }
     
     private void OnCollisionExit(Collision collision)
