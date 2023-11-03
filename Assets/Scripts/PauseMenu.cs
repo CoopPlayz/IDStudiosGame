@@ -12,18 +12,7 @@ public class PauseMenu : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (isPaused)
-        {
-            ResumeGame();
-        }
-        else
-        {
-            PauseGame();
-        }
-    }
+
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
