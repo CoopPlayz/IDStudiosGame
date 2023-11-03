@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private Transform targetObject;
-    [SerializeField] private Rigidbody PlayerBody;
+    private int ammo;
 
-    private Vector3 initialOffset;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ammo = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
+        gun.transform.Rotate(Vector3.up);
+        if (ammo == 0)
+        {
+            reload();
+        }
+        else
+        {/*
+            if(Shoot() == true)
+            {
+                ammo -= 1;
+            }
+            */
+        }
         
+    }
+    public void Shoot()
+    {
+        Debug.Log("Youve take a shot");
+    }
+    private void reload()
+    {
+        this.transform.Rotate(Vector3.up);
     }
 }
