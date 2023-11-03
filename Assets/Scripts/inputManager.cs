@@ -9,9 +9,10 @@ public class inputManager : MonoBehaviour
     [SerializeField] Rigidbody rigidBody;
     [SerializeField] PlayerDash playerDash;
     [SerializeField] Gun gun;
+    public PauseMenu pauseMenu;
 
-   
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,9 +114,13 @@ public class inputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            if (isPaused)
+            if (pauseMenu.isPaused)
             {
-                
+                pauseMenu.ResumeGame();
+            }
+            else
+            {
+                pauseMenu.PauseGame();
             }
         }
     }
