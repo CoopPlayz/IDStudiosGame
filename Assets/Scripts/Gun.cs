@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gun.transform.Rotate(Vector3.up);
+        this.transform.Rotate(Vector3.up);
         if (ammo == 0)
         {
             reload();
