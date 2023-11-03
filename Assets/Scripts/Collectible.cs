@@ -8,7 +8,7 @@ public class Collectible : MonoBehaviour
     private int currentCollectibles;
 
     public UnityEvent<int> onAddCollectible;
-
+    
     public void AddCollectible(int amount)
     {
         currentCollectibles += amount;

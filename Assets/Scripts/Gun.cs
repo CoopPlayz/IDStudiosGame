@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Rotate(Vector3.up);
+        this.transform.Rotate(Vector3.forward);
         if (ammo == 0)
         {
             reload();
@@ -32,10 +32,10 @@ public class Gun : MonoBehaviour
     }
     public void Shoot()
     {
-        Debug.Log("Youve take a shot");
+        Debug.Log("Youve taken a shot");
     }
     private void reload()
     {
-        this.transform.Rotate(Vector3.up);
+        this.transform.Rotate(Vector3.forward);
     }
 }
