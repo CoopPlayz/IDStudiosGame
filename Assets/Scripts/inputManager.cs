@@ -8,6 +8,7 @@ public class inputManager : MonoBehaviour
     [SerializeField] CameraMove cameraMove;
     [SerializeField] Rigidbody rigidBody;
     [SerializeField] PlayerDash playerDash;
+    [SerializeField] Gun gun;
 
    
     
@@ -90,7 +91,7 @@ public class inputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //playMove.Attack();
+            gun.Shoot();
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
@@ -111,8 +112,11 @@ public class inputManager : MonoBehaviour
             //playMove.SwitchWeaponDown();
         }
         if (Input.GetKeyDown(KeyCode.Escape)) 
-        { 
-            //GameMenu.PauseMenu
+        {
+            if (isPaused)
+            {
+                
+            }
         }
     }
 }

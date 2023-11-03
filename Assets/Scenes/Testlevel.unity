@@ -632,6 +632,7 @@ MonoBehaviour:
   cameraMove: {fileID: 2097195409}
   rigidBody: {fileID: 1878554281}
   playerDash: {fileID: 1878554283}
+  gun: {fileID: 1744817786}
 --- !u!4 &539779258
 Transform:
   m_ObjectHideFlags: 0
@@ -1613,15 +1614,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6efe674338ad4a49866fd7e5c2ba6b4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7501927
+      value: -0.7501917
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6efe674338ad4a49866fd7e5c2ba6b4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6efe674338ad4a49866fd7e5c2ba6b4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.66121936
+      value: 0.6612204
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6efe674338ad4a49866fd7e5c2ba6b4, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1672,13 +1673,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744817782}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0569d12648acf3419efa2eee45c232d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 1878554280}
-  PlayerBody: {fileID: 1878554281}
+  gun: {fileID: 0}
 --- !u!1 &1878554276
 GameObject:
   m_ObjectHideFlags: 0
