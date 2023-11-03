@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private Transform gun;
     private int ammo;
 
     // Start is called before the first frame update
@@ -37,6 +36,6 @@ public class Gun : MonoBehaviour
     }
     private void reload()
     {
-        gun.transform.Rotate(Vector3.up);
+        this.transform.Rotate(Vector3.up);
     }
 }
