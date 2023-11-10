@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class HealthSystem
+public class HealthSystem : MonoBehaviour
 {
     //Fields
-    [SerializeField] int CurrentHealth;
-    [SerializeField] int CurrentMaxHealth;
+    int CurrentHealth;
+    int CurrentMaxHealth;
 
     //Properties
     public int Health
@@ -44,7 +43,7 @@ public class HealthSystem
     {
         if (CurrentHealth > 0)
         {
-            CurrentHealth -= DmgAmount;
+            CurrentHealth += DmgAmount;
 
         }
     }
@@ -52,7 +51,7 @@ public class HealthSystem
     {
         if (CurrentHealth < CurrentMaxHealth) 
         { 
-            CurrentHealth += healAmount;
+            CurrentHealth -= healAmount;
         }
         if(CurrentHealth > CurrentMaxHealth) 
         { 
