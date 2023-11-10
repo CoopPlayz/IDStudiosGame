@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     private int ammo;
+    private bool isReloading = false;
     private float timeToRotate = 1.01f;
     private float rotateTimer;
     private Vector3 gunRot;
@@ -33,11 +34,17 @@ public class Gun : MonoBehaviour
     }
     public void Shoot()
     {
-        Debug.Log("Youve taken a shot");
-        ammo -= 1;
+        if (isReloading == false)
+        {
+            Debug.Log("Youve taken a shot");
+            ammo -= 1;
+        }
+        
+
     }
     private void reload()
     {
+        isReloading = true;
         rotateTimer += Time.deltaTime;
         if (rotateTimer < timeToRotate)
         {
@@ -49,6 +56,7 @@ public class Gun : MonoBehaviour
             ammo = 5;
             rotateTimer = 0f;
             this.transform.localEulerAngles = gunRot;
+            isReloading = false;
         }
         
     }
