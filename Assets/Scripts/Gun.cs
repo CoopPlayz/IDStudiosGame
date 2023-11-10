@@ -5,14 +5,17 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     private int ammo;
-    private float timeToRotate = 5.0f;
+    private float timeToRotate = 1.01f;
     private float rotateTimer;
+    private Vector3 gunRot;
+    //[SerializeField] AnimationCurve rotationSpeedCurve;
 
     // Start is called before the first frame update
     void Start()
     {
         ammo = 5;
         rotateTimer = 0;
+        gunRot = new Vector3 (0,this.transform.localEulerAngles.y,0);
     }
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class Gun : MonoBehaviour
         {
             ammo = 5;
             rotateTimer = 0f;
+            this.transform.localEulerAngles = gunRot;
         }
         
     }
