@@ -5,11 +5,14 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     private int ammo;
+    private float timeToRotate = 5.0f;
+    private float rotateTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         ammo = 5;
+        rotateTimer = 0;
     }
 
     // Update is called once per frame
@@ -17,25 +20,32 @@ public class Gun : MonoBehaviour
     {
         
         if (ammo == 0)
-        {
+        {   
             reload();
         }
         else
-        {/*
-            if(Shoot() == true)
-            {
-                ammo -= 1;
-            }
-            */
+        {
         }
         
     }
     public void Shoot()
     {
         Debug.Log("Youve taken a shot");
+        ammo -= 1;
     }
     private void reload()
     {
-        this.transform.Rotate(Vector3.forward);
+        rotateTimer += Time.deltaTime;
+        if (rotateTimer < timeToRotate)
+        {
+            this.transform.Rotate(Vector3.forward);
+            Debug.Log("Youre reloading");
+        }
+        else
+        {
+            ammo = 5;
+            rotateTimer = 0f;
+        }
+        
     }
 }
