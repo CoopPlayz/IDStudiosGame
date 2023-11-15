@@ -9,6 +9,8 @@ public class inputManager : MonoBehaviour
     [SerializeField] Rigidbody rigidBody;
     [SerializeField] PlayerDash playerDash;
     [SerializeField] Gun gun;
+    [SerializeField] GrapplingGun grappleGun;
+
     public PauseMenu pauseMenu;
 
 
@@ -89,15 +91,15 @@ public class inputManager : MonoBehaviour
         }
 
 
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+       
+        if (Input.GetMouseButtonDown(0))
         {
             gun.Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            //playMove.Defend();
-        }
+
+       
+
+
         if (Input.GetKeyDown(KeyCode.E)) 
         {
             //playMove.Interact();
