@@ -97,9 +97,6 @@ public class inputManager : MonoBehaviour
             gun.Shoot();
         }
 
-       
-
-
         if (Input.GetKeyDown(KeyCode.E)) 
         {
             //playMove.Interact();
