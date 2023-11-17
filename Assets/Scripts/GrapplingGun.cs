@@ -38,6 +38,7 @@ public class GrapplingGun : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(grappleCamera.position, grappleCamera.forward, out hit, maxDistance, whatIsGrappleable))
         {
+            AudioManager.Singleton.PlaySoundEffect("GrappleHook");
             grapplePoint = hit.point;
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;

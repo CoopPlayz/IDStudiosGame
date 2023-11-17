@@ -92,7 +92,7 @@ public class inputManager : MonoBehaviour
 
 
        
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gun.isActiveAndEnabled)
         {
             gun.Shoot();
         }
@@ -101,16 +101,7 @@ public class inputManager : MonoBehaviour
         {
             //playMove.Interact();
         }
-        if (Input.GetAxis("Mouse ScrollWheel") > 1)
-        {
-            //playMove.SwitchWeaponUP();
-
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 1)
-        {
-
-            //playMove.SwitchWeaponDown();
-        }
+        
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
             if (pauseMenu.isPaused)

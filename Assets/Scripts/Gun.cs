@@ -6,9 +6,11 @@ public class Gun : MonoBehaviour
 {
     public float damage =10f;
     public float range = 100f;
+    public float impactForce = 500000;
     
     public Camera fpsCam;
     public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
 
     private int ammo;
     private bool isReloading = false;
@@ -43,26 +45,40 @@ public class Gun : MonoBehaviour
         if (isReloading == false)   
         {
             muzzleFlash.Play();
-
+            AudioManager.Singleton.PlaySoundEffect("PistolShot");
             RaycastHit hit;
             if(Physics.Raycast(fpsCam.transform.position,fpsCam.transform.forward,out hit, range))
             {
                 Debug.Log(hit.transform.name);
-
                 Target target = hit.transform.GetComponent<Target>();
                 if(target != null)
                 {
                     target.TakeDamage(damage);
                 }
             }
-            Debug.Log("Youve taken a shot");
+            //Debug.Log("Youve taken a shot");
             ammo -= 1;
+            
+            //hit effect will become child of hit
+            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            if(hit.rigidbody != null)
+            {
+                Vector3 direction = hit.transform.position - Camera.main.transform.position;
+                hit.rigidbody.AddForce(direction * impactForce);
+                Debug.Log("Normal " + hit.normal + " Actual Force " + -hit.normal * impactForce);
+                //AudioManager.Singleton.PlaySoundEffect("Ricochet");
+            }
+            Destroy(impactGO, 2f);
         }
         
 
     }
     private void reload()
     {
+        if(isReloading == false)
+        {
+            AudioManager.Singleton.PlaySoundEffect("Reload");
+        }
         isReloading = true;
         rotateTimer += Time.deltaTime;
         if (rotateTimer < timeToRotate)
