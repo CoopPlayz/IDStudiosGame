@@ -61,6 +61,7 @@ public class Gun : MonoBehaviour
             
             //hit effect will become child of hit
             GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            impactGO.transform.parent = hit.transform;
             if(hit.rigidbody != null)
             {
                 Vector3 direction = hit.transform.position - Camera.main.transform.position;

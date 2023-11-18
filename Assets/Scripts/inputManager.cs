@@ -67,14 +67,12 @@ public class inputManager : MonoBehaviour
         }
 
         playMove.directionalInput();
-
+        /*
         if (Input.GetKeyDown(KeyCode.Z))
         {
             playerDash.Dash();
         }
-     
-
-        /*
+        
         if (Input.GetKey(KeyCode.LeftControl))
         {
             //playMove.Crouch();
@@ -90,8 +88,6 @@ public class inputManager : MonoBehaviour
             cameraMove.Look();
         }
 
-
-       
         if (Input.GetMouseButtonDown(0) && gun.isActiveAndEnabled)
         {
             gun.Shoot();
