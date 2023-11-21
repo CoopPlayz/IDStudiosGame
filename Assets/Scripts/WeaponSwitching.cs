@@ -17,8 +17,11 @@ public class WeaponSwitching : MonoBehaviour
     void Update()
     {
         int previousSelectedWeapon = selectedWeapon;
+        
+        float ScrollWheel = Input.GetAxis("Mouse ScrollWheel");
+        Debug.Log(ScrollWheel);
 
-        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 || Input.GetKeyDown("1"))
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f || Input.GetKeyDown("1"))
         {
             Debug.Log("Scrolled up");
             if (selectedWeapon >= transform.childCount - 1)
@@ -30,8 +33,9 @@ public class WeaponSwitching : MonoBehaviour
                 selectedWeapon++;
             }
         }
-        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 || Input.GetKeyDown("2"))
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f || Input.GetKeyDown("2"))
         {
+            Debug.Log("Scrolled down");
             if (selectedWeapon <= transform.childCount - 1)
             {
                 selectedWeapon = transform.childCount - 1;
