@@ -4,6 +4,7 @@ using System.Collections;
 public class DestroyOnClick : MonoBehaviour 
 {
 	public GameObject explodedPrefab;
+	[SerializeField] private Gun gun;
 
 	public float explosionForce = 2.0f;
 	public float explosionRadius = 5.0f;
@@ -15,7 +16,7 @@ public class DestroyOnClick : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetMouseButtonDown (0)) 
+		if (Input.GetMouseButtonDown (0) && gun.isActiveAndEnabled) 
 		{
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
