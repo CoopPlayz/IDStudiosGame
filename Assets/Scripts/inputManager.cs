@@ -30,30 +30,13 @@ public class inputManager : MonoBehaviour
             }
             //Vector3 movementDirection = Vector3.zero;
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
             {
                 //playMove.Left();
                 playMove.Movement();
                 //movementDirection.x = -1;
             }
-            if (Input.GetKey(KeyCode.D)) 
-            {
-                //playMove.Right();
-                playMove.Movement();
-                //movementDirection.x = 1;
-
-            }
-            if (Input.GetKey(KeyCode.W))
-            {
-                playMove.Movement();
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                //playMove.Backward();
-                playMove.Movement();
-                //movementDirection.z = -1;
-            }
-
+            
             //bool isKeyPressed;
         
             if(!Input.anyKey && !playerDash.IsDashing )
@@ -63,7 +46,15 @@ public class inputManager : MonoBehaviour
                 //rigidBody.velocity = Vector3.zero;
             }
 
-            
+        }
+        else 
+        {
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            {
+                //playMove.Left();
+                playMove.AirMovement();
+                //movementDirection.x = -1;
+            }
         }
 
         playMove.directionalInput();

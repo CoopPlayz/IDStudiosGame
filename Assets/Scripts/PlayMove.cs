@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public class PlayMove : MonoBehaviour
 {
     private float moveSpeed = 15;
-    private float maxSpeed = 15;
+    private float airSpeed = 1;
+    private float maxAirSpeed = 2;
 
     [SerializeField] private float jumpForce = 500;
     [SerializeField] private Transform orientationCam;
@@ -37,7 +38,7 @@ public class PlayMove : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         
     }
-
+    
     public void Movement()
     {
         
@@ -48,7 +49,12 @@ public class PlayMove : MonoBehaviour
 
     }
 
-    
+    public void AirMovement()
+    {
+        rigidBody.AddForce(orientationCam.transform.forward * y * airSpeed + orientationCam.transform.right * x * airSpeed);
+    }
+
+
     public void Jump()
     {
         //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
