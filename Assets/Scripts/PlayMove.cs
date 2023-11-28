@@ -7,7 +7,7 @@ public class PlayMove : MonoBehaviour
 {
     private float moveSpeed = 15;
     private float airSpeed = 1;
-    private float maxAirSpeed = 2;
+    private float maxAirSpeed = 15;
 
     [SerializeField] private float jumpForce = 500;
     [SerializeField] private Transform orientationCam;
@@ -52,6 +52,7 @@ public class PlayMove : MonoBehaviour
     public void AirMovement()
     {
         rigidBody.AddForce(orientationCam.transform.forward * y * airSpeed + orientationCam.transform.right * x * airSpeed);
+        rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxAirSpeed);
     }
 
 
