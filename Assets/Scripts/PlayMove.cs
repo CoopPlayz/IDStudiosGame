@@ -8,6 +8,7 @@ public class PlayMove : MonoBehaviour
     private float moveSpeed = 15;
     private float airSpeed = 1;
     private float maxAirSpeed = 15;
+    //private float maxGrappleSpeed = 5;
 
     [SerializeField] private float jumpForce = 500;
     [SerializeField] private Transform orientationCam;
@@ -16,7 +17,6 @@ public class PlayMove : MonoBehaviour
     private Rigidbody rigidBodyExtra;
     private float x, y;
 
-    public static bool isGrounded = false;
 
     
     // Start is called before the first frame update
@@ -54,30 +54,17 @@ public class PlayMove : MonoBehaviour
         rigidBody.AddForce(orientationCam.transform.forward * y * airSpeed + orientationCam.transform.right * x * airSpeed);
         rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxAirSpeed);
     }
-
-
+    /*
+    public void GrappleMovement()
+    {
+        rigidBody.AddForce(orientationCam.transform.forward * y * airSpeed + orientationCam.transform.right * x * airSpeed);
+        rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxGrappleSpeed);
+    }
+    */
     public void Jump()
     {
         //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         rigidBody.AddForce(orientationCam.transform.up * jumpForce);
     }
      
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.contacts[0].normal.y > 0.5)
-        {
-            Debug.Log("Youre grounded");
-            isGrounded = true;
-        }
-    }
-    
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            Debug.Log("Youre not grounded");
-            isGrounded = false;
-        }
-    }
 }

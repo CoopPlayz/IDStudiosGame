@@ -10,19 +10,15 @@ public class inputManager : MonoBehaviour
     [SerializeField] PlayerDash playerDash;
     [SerializeField] Gun gun;
     [SerializeField] GrapplingGun grappleGun;
+    [SerializeField] GroundCheck groundCheck;
 
     public PauseMenu pauseMenu;
+    
 
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
     void Update()
     {
-        if (PlayMove.isGrounded == true) // Jump input
+        if (groundCheck.isGrounded == true && !grappleGun.IsGrappling()) // Jump input
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -39,7 +35,7 @@ public class inputManager : MonoBehaviour
             
             //bool isKeyPressed;
         
-            if(!Input.anyKey && !playerDash.IsDashing )
+            if(!Input.anyKey) //&& !playerDash.IsDashing )
             {
                 Debug.Log("Zeroing Speed");
                 rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
@@ -47,12 +43,21 @@ public class inputManager : MonoBehaviour
             }
 
         }
-        else 
+        else if(!grappleGun.IsGrappling())
         {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
             {
                 //playMove.Left();
                 playMove.AirMovement();
+                //movementDirection.x = -1;
+            }
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            {
+                //playMove.Left();
+                //playMove.GrappleMovement();
                 //movementDirection.x = -1;
             }
         }
