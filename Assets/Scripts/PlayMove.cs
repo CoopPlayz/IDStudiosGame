@@ -10,11 +10,10 @@ public class PlayMove : MonoBehaviour
     private float maxAirSpeed = 15;
     //private float maxGrappleSpeed = 5;
 
-    [SerializeField] private float jumpForce = 500;
+    [SerializeField] private float jumpForce = 1000;
     [SerializeField] private Transform orientationCam;
 
     private Rigidbody rigidBody;
-    private Rigidbody rigidBodyExtra;
     private float x, y;
 
 

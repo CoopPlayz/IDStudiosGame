@@ -41,24 +41,26 @@ public class AudioManager : MonoBehaviour
         {
             if(sfx.soundName == soundName)
             {
-                PlaySoundEffect(sfx.audioClip);
+                PlaySoundEffect(sfx);
             }
         }
         
     }
-    public void PlaySoundEffect(AudioClip audioClip)
+    public void PlaySoundEffect(SoundEffect sfx)
     {
         foreach(AudioSource audioSource in audioSources)
         {
             if (!audioSource.isPlaying)
             {
-                audioSource.clip = audioClip;
+                audioSource.clip = sfx.audioClip;
+                audioSource.volume = sfx.volume;
                 audioSource.Play();
                 return;
             }
         }
         AudioSource createdAudioSource = CreateAudioSource();
-        createdAudioSource.clip = audioClip;
+        createdAudioSource.clip = sfx.audioClip;
+        createdAudioSource.volume = sfx.volume;
         createdAudioSource.Play();
 
     }
@@ -69,5 +71,6 @@ public struct SoundEffect
 {
     public string soundName;
     public AudioClip audioClip;
+    public float volume;
 
 }
