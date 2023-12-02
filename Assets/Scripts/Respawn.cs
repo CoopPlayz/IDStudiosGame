@@ -9,7 +9,7 @@ public class Respawn : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadSceneAsync(2);
         }
     }
 }
