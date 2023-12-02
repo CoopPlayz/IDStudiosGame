@@ -54,6 +54,7 @@ public class AudioManager : MonoBehaviour
             {
                 audioSource.clip = sfx.audioClip;
                 audioSource.volume = sfx.volume;
+                
                 audioSource.Play();
                 return;
             }
