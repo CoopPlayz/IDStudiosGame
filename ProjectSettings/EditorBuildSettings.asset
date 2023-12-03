@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Testlevel.unity
     guid: 95ece68e901f7294ca83b9c62a609779
+  - enabled: 1
+    path: Assets/Scenes/WinGame.unity
+    guid: 4798dc6d1ba1ccc48abdd749ba1a2c74
   m_configObjects: {}
