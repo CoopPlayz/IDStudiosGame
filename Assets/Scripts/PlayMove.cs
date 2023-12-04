@@ -53,13 +53,7 @@ public class PlayMove : MonoBehaviour
         rigidBody.AddForce(orientationCam.transform.forward * y * airSpeed + orientationCam.transform.right * x * airSpeed);
         rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxAirSpeed);
     }
-    /*
-    public void GrappleMovement()
-    {
-        rigidBody.AddForce(orientationCam.transform.forward * y * airSpeed + orientationCam.transform.right * x * airSpeed);
-        rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxGrappleSpeed);
-    }
-    */
+    
     public void Jump()
     {
         //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);

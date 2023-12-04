@@ -20,6 +20,7 @@ public class inputManager : MonoBehaviour
     {
         if (groundCheck.isGrounded == true && !grappleGun.IsGrappling()) // Jump input
         {
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 playMove.Jump();
@@ -28,12 +29,8 @@ public class inputManager : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
             {
-                //playMove.Left();
                 playMove.Movement();
-                //movementDirection.x = -1;
             }
-            
-            //bool isKeyPressed;
         
             if(!Input.anyKey) //&& !playerDash.IsDashing )
             {
@@ -52,15 +49,7 @@ public class inputManager : MonoBehaviour
                 //movementDirection.x = -1;
             }
         }
-        else
-        {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
-            {
-                //playMove.Left();
-                //playMove.GrappleMovement();
-                //movementDirection.x = -1;
-            }
-        }
+        
 
         playMove.directionalInput();
         /*
