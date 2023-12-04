@@ -9,7 +9,7 @@ public class WeaponSwitching : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        selectedWeapon = 0;
+        selectedWeapon = 1;
         SelectWeapon(); 
     }
 

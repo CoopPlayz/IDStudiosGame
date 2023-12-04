@@ -49,6 +49,11 @@ public class inputManager : MonoBehaviour
                 //movementDirection.x = -1;
             }
         }
+
+        if(grappleGun.isActiveAndEnabled == false)
+        {
+            grappleGun.StopGrapple();
+        }
         
 
         playMove.directionalInput();
