@@ -22,10 +22,11 @@ public class GrapplingGun : MonoBehaviour
         {
             StartGrapple();
         }
-        else if (Input.GetMouseButtonUp(1) || this.isActiveAndEnabled == false)
+        else if (Input.GetMouseButtonUp(1))
         {
             StopGrapple();
         }
+        
     }
 
     private void LateUpdate()
