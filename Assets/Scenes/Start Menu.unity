@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shaded
+  m_text: Tis'Fine
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6b93aba0458b384888bd6308bada44a, type: 2}
   m_sharedMaterial: {fileID: 8321647537735161181, guid: f6b93aba0458b384888bd6308bada44a, type: 2}
